@@ -8,9 +8,8 @@
 		"noImplicitAny": true
 	},
 	"files": [
-		"./index.ts",
-		"./baz.ts",
-		"./Bar.ts",
+		"./typings/main.d.ts",
+		"./src/index.ts",
 		// "ignore",
 	]
 }

@@ -11,36 +11,13 @@ registerSuite({
 	'generate': function () {
 		return generate({
 			name: 'foo',
-			baseDir: 'tests/support/foo',
-			files: [ 'index.ts' ],
+			project: 'tests/support/foo',
+			baseDir: 'tests/support/foo/src',
+			// files: [ 'index.ts' ],
 			out: 'tmp/foo.d.ts'
 		}).then(function () {
 			const contents = fs.readFileSync('tmp/foo.d.ts', { encoding: 'utf8' });
 			assert(contents, 'foo.d.ts should exist and have contents');
-			assert.include(contents, `module 'foo/index'`);
-			assert.include(contents, `module 'foo/Bar'`);
-		});
-	},
-	'no files': function () {
-		return generate({
-			name: 'foo',
-			baseDir: 'tests/support/foo',
-			out: 'tmp/foo.nofiles.d.ts'
-		}).then(function () {
-			const contents = fs.readFileSync('tmp/foo.nofiles.d.ts', { encoding: 'utf8' });
-			assert(contents, 'foo.nofiles.d.ts should exist and have contents');
-			assert.include(contents, `module 'foo/index'`);
-			assert.include(contents, `module 'foo/Bar'`);
-		});
-	},
-	'project': function () {
-		return generate({
-			name: 'foo',
-			project: 'tests/support/foo',
-			out: 'tmp/foo.config.d.ts'
-		}).then(function () {
-			const contents = fs.readFileSync('tmp/foo.config.d.ts', { encoding: 'utf8' });
-			assert(contents, 'foo.config.d.ts should exist and have contents');
 			assert.include(contents, `module 'foo/index'`);
 			assert.include(contents, `module 'foo/Bar'`);
 		});

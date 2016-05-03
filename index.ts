@@ -128,6 +128,8 @@ function getTSConfig(options: Options, fileName: string): Options {
 	if (configParseResult.options.rootDir) {
 		options.rootDir = configParseResult.options.rootDir;
 	}
+	!options.exclude || (options.exclude = configParseResult.typingOptions.exclude);
+	(!options.exclude || options.exclude.length === 0) && (options.exclude = [ 'node_modules/**/*.d.ts', 'typings/**/*.d.ts' ]);
 	options.files = configParseResult.fileNames;
 	return options;
 }
@@ -157,6 +159,8 @@ export default function generate(options: Options): Promise<void> {
 	const noop = function (message?: any, ...optionalParams: any[]): void {};
 	const sendMessage = options.sendMessage || noop;
 	const verboseMessage = options.verbose ? sendMessage : noop;
+	options.project || (options.project = './');
+	options.baseDir || (options.baseDir = './src/');
 
 	/* following tsc behaviour, if a project is speicified, or if no files are specified then
 	 * attempt to load tsconfig.json */
@@ -175,7 +179,7 @@ export default function generate(options: Options): Promise<void> {
 		}
 	}
 
-	const baseDir = pathUtil.resolve(options.rootDir || options.project || options.baseDir);
+	const baseDir = pathUtil.resolve(options.rootDir || options.baseDir || options.project);
 	verboseMessage(`baseDir = "${baseDir}"`);
 	const eol = options.eol || os.EOL;
 	const nonEmptyLineStart = new RegExp(eol + '(?!' + eol + '|$)', 'g');

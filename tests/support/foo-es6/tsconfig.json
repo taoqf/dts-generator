@@ -7,8 +7,8 @@
 		"noImplicitAny": true
 	},
 	"files": [
-		"./index.ts",
-		"./baz.ts",
-		"./Bar.ts"
+		"./src/index.ts",
+		// "./baz.ts",
+		// "./Bar.ts"
 	]
 }
