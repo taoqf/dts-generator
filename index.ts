@@ -201,7 +201,7 @@ export default function generate(options: Options): Promise<void> {
 	filenames.forEach(name => { verboseMessage('  ' + name); });
 	const excludesMap: { [filename: string]: boolean; } = {};
 
-	options.exclude = options.exclude || [ 'node_modules/**/*.d.ts' ];
+	options.exclude = options.exclude || [ 'node_modules/**/*.d.ts', 'typings/**/*.d.ts' ];
 
 	options.exclude && options.exclude.forEach(function (filename) {
 		glob.sync(filename).forEach(function(globFileName) {
