@@ -10,6 +10,7 @@
 	"files": [
 		"./index.ts",
 		"./baz.ts",
-		"./Bar.ts"
+		"./Bar.ts",
+		// "ignore",
 	]
 }
