@@ -11,7 +11,7 @@
 		"./*.ts",
 		"./bin/**/*.ts",
 		"./tests/**/*.ts",
-		"./typings/tsd.d.ts",
+		"./typings/main.d.ts",
 		"./node_modules/typescript/lib/typescript.d.ts",
 		"./node_modules/typescript/lib/typescript.ts"
 	],
@@ -19,13 +19,12 @@
 		"./index.ts",
 		"./bin/dts-generator.ts",
 		"./tests/intern.ts",
-		"./tests/support/foo/Bar.ts",
-		"./tests/support/foo/index.ts",
+		"./tests/support/foo/src/index.ts",
 		"./tests/typings/dts-generator/dts-generator.d.ts",
 		"./tests/unit/all.ts",
 		"./tests/unit/bin/dts-generator.ts",
 		"./tests/unit/index.ts",
-		"./typings/tsd.d.ts",
+		"./typings/main.d.ts",
 		"./node_modules/typescript/lib/typescript.d.ts"
 	]
 }

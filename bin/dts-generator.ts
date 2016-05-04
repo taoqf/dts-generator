@@ -1,4 +1,5 @@
 import generate from '../index';
+import * as Promise from 'bluebird';
 
 export = function main(argv: string[]): Promise<number | void> {
 	const kwArgs: {

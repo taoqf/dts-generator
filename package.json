@@ -28,7 +28,7 @@
     "typescript": "^1.8.10"
   },
   "scripts": {
-    "prepublish": "tsc --module commonjs --target es5 typings/tsd.d.ts index.ts bin/dts-generator.ts",
+    "prepublish": "tsc --module commonjs --target es5 typings/main.d.ts index.ts bin/dts-generator.ts",
     "test": "tests/run.sh"
   }
 }
